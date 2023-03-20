@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $link = [
+        'canonical' => route('homepage')
+    ];
+    $head = compact(['link']);
+    return view('index', compact(['head']));
+})->name('homepage');
