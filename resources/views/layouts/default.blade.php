@@ -9,7 +9,13 @@
     <meta name="keywords" content="Tab, 部落格">
 
     {{-- link --}}
-    <link rel='canonical' href="{{ $head['link']['canonical'] }}">
+    <link rel='canonical' href="{{ $head['link']['canonical'] ?? '' }}">
+    @section('header-link')
+    @show
+
+    {{-- Header JavaScript --}}
+    @section('header-javascript')
+    @show
 
     {{-- TODO: OG --}}
     {{-- TODO: Structured Data --}}
@@ -18,12 +24,18 @@
 <body>
 @section('header')
     <div>Default Header</div>
-@show
+@endsection
 
-@yield('content', 'Default Content')
+@section('content')
+    Default content
+@endsection
 
 @section('footer')
     <div>Default Footer</div>
+@endsection
+
+{{-- Footer JavaScript --}}
+@section('footer-javascript')
 @show
 </body>
 </html>
